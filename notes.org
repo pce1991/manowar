@@ -40,11 +40,14 @@
      A shotgun pretty much. Maybe hits a point, but also does damage one point in each direction. 
 **** Lasers
      Comes in three flavors: can disrupt systems; can target a specific location and do damage, maybe knock out a weapon; can cut thru the hull. Lasers may be insta-hits at a certain range, but take a second or two from far away, so you aim at a coordinate rather a ship, and attempt to predict their movement. Missiles have the advantage of correcting course, and flakcannons can flood a wide area with projectiles. 
+
+     These can be sustained, but drain more and more energy. 
 **** Nuke
      Disrupts and damages systems, does a huge amount of damage to the hull. How does it fair agaist shields?
 **** Particle Beam
 **** Ion Cannon
 **** Plasma Cannon
+     Unrealistic, but too cool. 
 *** Shields
     Maybe rather than having a permanent reduction in power they have a constant drain, so you want to wait until the last moment to bring them up, but you also don't want to be vulnerable. 
 *** Drones 
