@@ -1,0 +1,180 @@
+* NOTES
+** Gameplay   
+*** Turns
+    I think the turns should be taken simeltaneously. But maybe it works better Pokemon style since I have more experience there; but wait, that's simeltaneous, it just happens in an order determined by speed. 
+
+    Each player will make their move without the information of what's about to happen. It's important that things can be going wrong without you realizing it for a couple of turns; that's where clever hacking comes into play actually. If you change their course noticably then they'll just set it back, but if you alter it subtley to your advantage, then they might not notice til its too late. 
+
+    Turns happen on a timer so that there is a rush to get things done. 
+*** Movement
+    Maybe the ships have an accelerate/decelerate bit that comes into play when making turns or trying to get away. You might also have stabilizers you could activate, but I'm not sure how that'd work. 
+
+    You can plot a course over a series of turns rather than just setting a destination. I'm guessing the ship still does the path-finding, but you could tell it to go here, then here, then there. 
+
+    Maybe you have orbital paths around certain bodies that require no energy to move around and you could do things like swing yourself around it then launch off. In this sytem plotting a course would mean you'd calculate at which points you need to use another thrust. 
+**** Attitude
+     This is the orientation of the ship to an object. 
+**** Methods of propulsion
+     Single bursts or gliders?
+*** Hacking
+    I really need to figure this out and make it interesting. It will be a lot easier if I can think of the game happening on two screens. 
+
+    Hacking is really the heart of the game; since there's no stealth, and these things are just lumbering towards each other, the element of suspense and mystery is that you can't trust your system readouts, even tho its the only way you can perceive the world. There needs to be a sense of dread and isolation. 
+
+    Hacking should allow for a lot of player expression. Maybe you can hack multiple things at once, but you have to decide how long each lasts for. You might also be able to cover your tracks with clever tricks. It should be more skill based than the other systems, but I don't know how to move it beyond just selecting what hacks you want to do. Maybe you can set a sequence of things to happen, kind of like plotting a route. I think gaining access should be what requires skill, plating a bug on them, getting drones nearby, stuff like that; but again, its vague and I'm not sure how to do it. Maybe there's a tradeoff between being hackable and having a certain power. Maybe drones make you hackable, but then would they be worth it? Maybe communication channels, which would be really important in multiplayer (but how to avoid players just cheating and talking on the phone or something?). Maybe you can monitor your own ships to see if anythings gone wrong with them, but this leaves both of you vulnerable. 
+**** Navigation/Map
+     Hacking the navigation could be changin their course, or swapping out one part of their plotted route for another without them knowing it, so they get to their first destination, but then realize they're going the wrong way. 
+**** Weapons
+     You can cause the enemy to fire a weapon of your choosing. 
+**** Systems
+     You could drain their energy, divert power from shields, trigger a hull-repair. 
+*** Weapons
+    Include poetic descriptions of what each weapon does and how it feels. 
+**** Gauss Canon
+     Fires a precision projectile. Does it require prediction to aim at a distance? How in it different than a laser then? 
+**** Missiles
+     They drift thru space along their calculated course, and fire up when they get near, roaring towards the target. Because they have very little heat signature they cant be detected until the last moment, maybe enough time to raise shields. 
+
+     Missiles miss... heh.
+**** Flak Cannon
+     A shotgun pretty much. Maybe hits a point, but also does damage one point in each direction. 
+**** Lasers
+     Comes in three flavors: can disrupt systems; can target a specific location and do damage, maybe knock out a weapon; can cut thru the hull. Lasers may be insta-hits at a certain range, but take a second or two from far away, so you aim at a coordinate rather a ship, and attempt to predict their movement. Missiles have the advantage of correcting course, and flakcannons can flood a wide area with projectiles. 
+**** Nuke
+     Disrupts and damages systems, does a huge amount of damage to the hull. How does it fair agaist shields?
+**** Particle Beam
+**** Ion Cannon
+**** Plasma Cannon
+*** Shields
+    Maybe rather than having a permanent reduction in power they have a constant drain, so you want to wait until the last moment to bring them up, but you also don't want to be vulnerable. 
+*** Drones 
+    
+**** Combat
+
+**** Intelligence
+     These can be used to hack the enemy ship and gather system readouts, course-setting, or to disrupt their perception of the map and their own systems (like thinking they took a hit to shields so they'll try to protect their hull, which is when you really hit their shields). 
+**** Defense
+     These will repair your hull and also fend off enemy drones or try to shoot down incoming missiles. 
+*** Map
+    Maybe the map could be randomized with certain obscructions like debris, asteroids, or planets. That'd be another cool think to hack: they think they're hiding behind a rock but really you put it there. 
+
+    There could be ion-storms or other things that obscure your position from the enemy, but might also mess with your sensors. 
+
+    When you plot a course it draws lines between the points that you'll travel to. It'd also be cool to show predictive plotting about how your orbit will look. 
+**** View controls,
+     You can look at it from a top down at either poll, or centering at any point along the equator. This creates a problem tho where if I move the camer the view of the text might change, but if I move the map I have to translate the units, but that might not actually be that bad. 
+** Systems
+*** Physics/Movement
+    It'd be neat to actually try to simulate how this stuff would work, even if its in a very gamey sort of way. 
+*** Energy
+    You have a certain amount of energy that you have to divvy up between your movement, shield, drones, and attacks. The first three all have a drain while they're active, the other is just a cost of use. 
+** AI
+   It'll be much easier to test if I have two screens, but only need to access one. Will make showing off the game much easier. 
+** Aesthetics
+   What's the time-frame like? There's a sci-fi story where people take potshots and go into cryo for a month then wake up to see if they hit (I guess they figure they wont wake up if they're hit, so you go to sleep expecting to die). 
+** Ideas for Expansion
+   
+*** Mining
+    Maybe you're a scavenger floating thru the galaxy and must gather recourses; this could add objectives to a battle by having something to fight over. 
+
+    Instead of recourses you could be mining for information scattered and lost thruout space.
+
+*** Warfare
+    If I increased the size of the map then team fights could take place, adding a whole variable of communcation, decreasing isolation, but adding the element of mistrust between comrades: are you the one hacked, or are your friends the one's with faulty info. You could also shut down communication between teammates. 
+
+*** Ship customization
+    I don't have enough weapons for this right now, but maybe if I cut down the number that each ship has you could specialize by picking two or three. They might each cost a certain amount of energy drain to just be active on the ship, so you have to prioritize. 
+*** Map Layers
+    Since its space it makes more sense to be an orb rather than a circle, and this would add a lot of variety to movement, but this would require 3D rendering, but it'd also look really cool. 
+** RECOURSES
+*** Found on the Escapist forums.
+    Recently, I decided to revisit one of my interests: Space warfare. It has been known to me for quite some time that most people don't really know that much about space combat, for the main metaphors for combat in space represent combat spacecraft in a fashion befitting ships on the sea. Now, I'm hardly an expert on these matters, but I would like to discuss the issue and possibly reinforce my own knowledge in the process. So, without further ado...
+
+Space Warfare: Almost Everything You Know Is (Probably) Wrong
+
+Space warfare is one of the most popular settings for science fiction stories, with its near-endless expanses and its huge variety of different settings, but it's very difficult to find someone who depicts an accurate and plausible method of space fighting; who's done the requisite research. I'm here to deliver information on a few of the more egregious inaccuracies and some of the more common implausibilities in popular depictions of space combat, as well as discussing a few ideas which I see as plausible.
+
+"The laws of physics strike again!"
+
+Movement in Space: I begin with the source of some of the most egregious errors in space-based science fiction, the principles of moving through space. What makes this an especially irritating set of inaccuracies is the fact that any secondary-school physics student should be able to figure out these principles very easily and without much effort. Some of the knowledge about the movement of objects in space was devised by Isaac Newton, back to the 17th and 18th century, and is taught at primary school level.
+
+So, firstly, there is no friction in space. Once you reach a specific velocity in open space, you're not going to slow down. This is elementary Newtonian physics, conforming to Newton's First Law of Motion, which states that any object in uniform motion tends to stay in that uniform motion until acted upon by a net external force - in other words, it conforms to inertia. Any molecules in space (because it's not completely empty) are going to be too diffuse to slow down the motion of a spacecraft.
+
+The most obvious application of this law of motion would be the fact that once you get a spacecraft into motion in outer space, you're not going to need to use any more fuel to keep it at a specific velocity. Therefore, any depictions of spacecraft with engines flaring and the spacecraft remaining at a constant speed are already inaccurate. Missiles in space aren't going to need to burn fuel once they reach a certain velocity, so engines flaring from the back of those when they're remaining at a constant velocity causes another inaccuracy. (This rule also adds a practical benefit for missile design in space, which I'll address later.)
+
+Secondly, spacecraft are often described as having a top speed, usually given in invented units. The speed limit of a spacecraft is actually going to be somewhere near light speed, short of limitations due to lack of fuel. A more apt measure to give would be maximum acceleration rates, as these would accurately depict how quickly a spacecraft could catch up to or run away from another.
+
+"You know, you're going to have problems cooling that spacecraft...": I'm sure you've heard that space is cold many, many times over the course of your lives. Indeed, it is; about 3-4 Kelvin, I believe. But don't for a second think that, if you were to be ejected into space this instant, you'd freeze immediately. Remember what I was saying about diffuse particles under the last heading? That has its applications in terms of heat transfer as well.
+
+You see, in order to transfer heat, you need particles to transfer it to. There simply isn't enough hydrogen in outer space to readily radiate heat to, and you'd die of asphyxiation long before you'd die of freezing. This also means that spacecraft are going to have lots of problems with dumping excess heat. Best not to use those fancy laser and plasma weapons, I suppose.
+
+There is no such thing as "stealth in space"!: An unfortunate casualty to the laws of thermodynamics, due partially to the previous example, is the myth of "stealth in space". If you've devised a scenario where this happens, don't feel too ashamed: I've fallen victim to this inaccuracy myself. However, there is absolutely no way with real materials to devise a spacecraft which can hide in space.
+
+The problem lies with the heat generated by a spacecraft. Even if you keep the spacecraft's engines off, you're going to have the 290+ Kelvin crew section lighting up against the background of space, and that's before you get to the heat given off by a power generator for that life support system that's keeping you alive. If you actually decide to fire up the engines, you'll flash up like a beacon.
+
+And if you're thinking about losing yourself in the sheer volume of empty space, don't bother. Any prospective combat spacecraft is going to be picked up over the entire solar system, and thermal scans can be done in mere hours - with current equipment.
+
+Explosions - They're Very Different: I'm going to guess now that one of your entrenched thoughts regarding space combat involves a lot of explosions. It's time to think again. Explosions work very differently in space to explosions in atmosphere.
+
+You see, the atmosphere is precisely what allows the blast of an explosion to travel. In space, with its diffuse particles, there is no blast from an explosion. All you'll get is a very intense central point of light, followed by a very rapid spherical expansion and debris travelling out from the explosion. You're not going to be able to build a weapon from an explosive device, that's for sure.
+
+Nuclear Weapons Don't Work Either: The nuclear weapon is probably the most feared device on Earth, capable of annihilating cities and leaving countries uninhabitable. In space, they're rather less intimidating. The lack of atmosphere means no blast, just as with a conventional missile, and they give off a pitiful amount of thermal radiation. Oh, and nuclear weapons don't produce EMP when you're in deep space.
+
+However, there is one effect that remains: the large-scale emission of nuclear radiation, and without an atmosphere to degrade it, the level of radiation remains strong over a much longer distance. Even the smallest of nuclear weapons would leave a lethal radioactive cloud stretching for kilometres, and a strategic, ICBM-style nuclear device would remain lethal for more than 100 kilometres. There is, however, a simple shield against all of this radiation, and one that's probably going to be built into the spacecraft anyway: Lead. There's going to be a layer of lead for travelling through natural radiation belts, which limits the ability for radiation to penetrate.
+
+Now, within about a kilometre, nuclear weapons will have effects. The radiation will be absorbed by the hull of the spacecraft, causing rapid and uneven heating, spallation of armour and impulse shock. These effects would seem to make a nuclear warhead on a missile a good idea. However, nuclear weapons are expensive, and degrade over time, and when you couple this to the likely propagation of anti-missile systems as standard armament, the number of nuclear warheads impacting the target reaches a low-enough ratio to make missiles with solid warheads and ultra-high speeds a far more affordable option. Therefore, I foresee the large-scale obsolescence of nuclear weapons in space.
+
+Shiny Red Lasers? No.: You can't see lasers in space. Enough said. Most lasers used in space would be at infra-red frequencies anyway, so that would nullify that in any case.
+
+Outer Space Ain't The Best Place To Practice The Guitar: One of the most well-known characteristics of space is its near-inability to transmit sound. As sound waves are longitudinal, they require a medium to pass through. The vacuum of space doesn't provide an environment particularly conducive to transmission of sound, with the net result that you aren't going to hear a missile until it strikes you on the hull.
+
+Combat Spacecraft Design, And Why Your Favourite Fictional Spacecraft Would Suck In Reality
+
+"So, how much does it cost to maintain your massive spacecraft?": People like to appeal to insane size when inventing their fictional spacecraft and space stations. It's the reason why you hear so much talk of the Death Star and Super Star Destroyers from Star Wars, and why so many people describe their spacecraft with naval ship classes like "Battleship" and "Battlecruiser". As somebody who has (unfortunately) fallen into this trap before, and somebody who's seen the light, let me tell you that it's an utter pleasure to tell you that these spacecraft would be completely implausible.
+
+I'll give you a few minutes to cry/shout obscenities at your screen. Basing your space navy around these is the first clue that you've forgotten, ignored or never properly learned the laws of inertia. First of all, how much fuel are you going to need to expend to get that much mass moving in the first place, and once you have it moving, how the hell are you supposed to stop it? Even if you do figure out a way to get it moving, good luck having a turning circle which isn't measured in astronomical units.
+
+And that's before you get to the less obvious questions of upkeep. The crew size for the first, complete Death Star is somewhere in the region of 250,000, plus hundreds of thousands of auxiliary troops. So, where the hell are you going to keep the food for these 250,000+ personnel, not to mention dormitories, leisure areas, et cetera? A modern aircraft carrier has a series of ships devoted to feeding it, and they only have crews going up to about 10-15,000. Keeping more than a million people fed on a single space station would be a logistical nightmare that even the Empire couldn't fix. Oh, and don't forget the cooling systems, because space doesn't radiate that much heat easily. Hell, I can see why they left that vent open in A New Hope. How the hell else were they supposed to keep the Death Star cool enough to actually work in?
+
+The same thing applies even to your garden-variety space battlecruiser. In fact, the logistical problems are going to be greater, because how the hell are you supposed to supply it when it's in hyperspace, let alone normal interplanetary patrolling? But perhaps there's a reason why most of you forget about these things, because if a lot of you had given this even the amount of consideration that I have, your heads would have exploded.
+
+"No, space fighters aren't going to work either.":Again, I'm guilty of this inaccuracy, as indeed are a lot of writers who probably know a lot more about the ideas of space warfare than I do. The problem is that while the battlecruiser and ridiculously large space stations don't work because of an overly-large crew and requirements for huge amounts of food and cooling systems, the space fighter doesn't work because it has no place for anything more than a rudimentary life support system, and the lack of explosive weaponry in space means that it remains underarmed. Because space fighters can't engage large spacecraft, there's absolutely no point in maintaining them for fighting each other. They're just irrelevant, that's all.
+
+So, no space dogfights for you.
+
+"Space marines? No, not them either.": Yet another inaccuracy that I've been guilty of, but I've recently become convinced that the space marine as it's portrayed in science fiction is an implausibility. Robert A. Heinlein noted this in Starship Troopers, justifying his Mobile Infantry with the need for a "personal touch". However, when it comes to human-on-human space warfare, what's the point of having a personal touch when an overbearing presence in space, complete with city-annihilating weapons, frightens people that much more? Perhaps some sort of space-bound infantry will survive, policing space stations and maintaining order on planetary surfaces. However, this will remain more of a paramilitary force than any force specifically designed to attack.
+
+Despite its irrelevance in a traditional spacecraft warfare context, it seems that the space marine may be relevant at some point in the future. Until using giant space stations loaded with weaponry becomes cheaper and logistically superior to using infantry, the space-bound infantryman need not fear for his job.
+
+"So, what the hell is going to work?" - Some Plausible Designs?
+
+Spacecraft Design: While your crazy, ornate spacecraft designs are doomed to failure from the start, there are a few types of spacecraft design which might work for combat purposes. These designs conform to one of two basic shapes: The cylinder and the sphere. There are advantages and disadvantages to either design, but I'll be presuming that most combat spacecraft will conform to the cylinder shape rather than the sphere.
+
+Now, once you have your cylinder, you're going to have to develop crew sections for it, which will have to be inside the cylinder to take advantage of shielding. Here, we come to a little problem: Generation of artificial gravity, which is essential because long-term exposure to zero-gravity is going to cause significant physiological effects. The most plausible way of generating artificial gravity is to use centripetal acceleration to your advantage, and to place the crew inside a rotating centrifugal cylinder.
+
+Now, this guy maintains that spacecraft should always have their crew sections laid out like a skyscraper, rather than an aircraft, but I'm inclined to disagree slightly, because of the need to encase a combat spacecraft's crew sections inside the spacecraft itself, maintaining an integrated design. Centripetal acceleration always acts in on the centre of a circle, and therefore, the crew members will be forced out onto the outer side of the sphere by inertial forces. Maintaining a cockpit which conforms to an "up" being the direction of movement would be reasonable, but I'm not convinced that it works so well for passenger sections, unless the centrifuge is lined longitudinally, which limits the amount of space available to the crew members.
+
+There is a lower limit on the size of a centrifugal cylinder, based on the effects of the Coriolis effect on many would-be space travellers. Discovery One from 2001: A Space Odyssey had a centrifugal cylinder with a 11.6m diameter and a 3RPM spin rate, which would generate an artificial gravity with significantly less than 1G. Therefore, any combat spacecraft intending to generate 1G of artificial gravity would be approximately about the size of a naval battleship, with a rotational cylinder at a rate of about 7-10RPM.
+
+Luckily, you're not going to have that many crew members to worry about. The thousands of personnel of many people's combat spacecraft designs (including some of my older ones, unfortunately) are a fiction. By the time that space travel becomes plausible, computing technology will be advanced enough to run nearly all of the spacecraft's systems, and automation will be king. I predict that combat spacecraft will require a crew up to about 20 personnel - on the largest combat spacecraft.
+
+One of the most reasonable designs for an engine for an interplanetary spacecraft would use nuclear pulse propulsion from a fusion rocket, like the studies conducted by the British Interplanetary Society and NASA in their respective projects, Project Daedalus and Project Longshot. The Longshot design, with its separate engine and nuclear reactor, would be superior for a design carrying human personnel, and therefore shall be taken as the basis for my own designs.
+
+Weapons Systems: You know that naval metaphor that you're thinking of? Forget about it. Close-range space combat just isn't going to happen. Sensor technology that can pick up spacecraft across the whole solar system, and the complete lack of shielding able to protect against long-range blasts, maintains that space combat will be fought over a very long distance, measured in hundreds or thousands of kilometres. This is the most difficult part of space warfare to predict, but I'll take a stab at it based on what I've read before.
+
+Now, at those distances, an instantaneous weapon such as a laser would seem like the most logical choice, but there may be issues which limit the usefulness of lasers in space. You see, lasers are prone to producing a lot of heat, which is something which isn't exactly a good thing on a spacecraft which might already be having difficulties with dumping excess heat. However, they don't require any ammunition, which makes them ideal point-defence weapons against missiles, et cetera.
+
+Because of the heat problems with any sort of energy weapon, the most plausible main weapon systems of a prospective future spacecraft appear to be missiles and mass drivers. Out of these two choices, missiles are likely to be used the most often, as they have the ability to correct themselves in mid-flight. Because there are no acting forces in space to slow a missile's flight (back to the First Law of Motion again!), a certain amount of fuel is going to go much further, and the missile is going to be able to accelerate to much higher velocities, which will be important, because without an explosive warhead to count on, it's going to have to crash through the opposing spacecraft.
+
+Mass drivers, usually magnetic accelerators in the form of the coilgun or the railgun, will likely be the other popular choice of armament for a spacecraft. Unlike missiles, their projectiles will remain mostly unharmed by laser point-defence systems, but unlike missiles, the projectiles would likely be unable to correct their direction in mid-air, meaning that computer systems will have to actively predict the relative velocity of an opposing spacecraft and correct its aim accordingly. Like the space missile, the mass driver's projectiles are designed to use high amounts of kinetic energy to smash through an opposing spacecraft, travelling at a high enough velocity to hit before the enemy can oppose inertia enough to move out of the way of the incoming projectile. Clouds of shot may be useful for this purpose; a spacecraft moving at a high velocity relative to your spacecraft is going to be stopped by a surprisingly light projectile - maybe even with as much mass as an empty beer can. Therefore, you may see kinetic shells loaded with kilograms of buckshot, ball bearings or even sand and gravel.
+
+Apart from these weapons, there will likely be a number of new weapons that would be harder to predict. While most types of nuclear weapon will likely become obsolete for use in space, because of the requirement for it to hit the target directly, there is one sort of nuclear weapon which may be useful. The neutron bomb generates high-energy neutrons as a byproduct of its detonation, which are more difficult to shield against than the gamma rays of the majority of nuclear weapons.
+
+As well as that, there are ways of generating EMP using a non-nuclear device, and while I would expect spacecraft to be heavily shielded against EMP and have plenty of redundant systems, a sufficiently large EMP is going to fry any transistor-based computer systems, rendering a spacecraft almost useless, and often rendering it as a big, metal, space-bound coffin for any personnel left inside.
+
+So, almost 3,000 words later, and I haven't even discussed everything I've learned about space warfare, let alone what somebody with more experience with this subject and the physics behind it would be able to recall. This site is full of reading material on the subject, dealing with just about everything you'd ever want to know - and a lot of things you probably wouldn't. I think there's a reason why so many people handwave their space warfare technology for the future - almost everybody with the requisite knowledge to predict everything is probably already working at DARPA or NASA, and those that aren't are just out of their minds for considering the matter in that much detail.
+
+If you made it to the end, well done. If you made it to the end without crying or cursing at the screen for me destroying your fantasies, greater commendations are due. As I've noted several times over the course of the article, I've fallen into several of these inaccuracy traps myself, so it isn't uncommon. There's actually a secondary reason for doing all of this research - as difficult as it appears to be to write a hard science-fiction story based around space warfare, I'm trying to give it a go right now, after some embarrassing failures with previous stories.
+
+*** Huge sight 
+    http://www.projectrho.com/public_html/rocket/index.php
