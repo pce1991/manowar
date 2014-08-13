@@ -6,28 +6,40 @@
 (def weapons {:nuke nil 
               :lasers nil 
               :flak nil 
-              :gauss nil
+              :cannon nil
+              :gauss nil   ;maybe this is charged, the longer the stronger and further it goes. 
               :missiles nil})
 
-(def ship  
+(def drone {:hull 100
+            :location nil
+            :course nil ;maybe add a target setting so it can just follow the enemy ship
+            :mode nil ;offense, defense, scout. Offense might be useless, maybe it should be a patrol watching 
+            ;; out for missiles in the area or something. 
+            })
+
+(def manowar  
   {:name nil 
    :captain nil 
    :hull 100
    :shield 0
    :power 100                           ;this is calculated by (- max drain) in :generator
-   :speed 0
+   :engine {:speed 0
+            :max-speed 4
+            :acceleration 2}
+
    :course nil 
    :location nil 
    ;; radomize the location of systems. Will take a key matching those in locations. Add more. 
    ;; there will be between 5 and 8 weapons, so have areas for those as well. 
-   :systems {
-             :computer nil              ;how to balance this? 
+   :system-locations  {
              :engine nil
              :generator nil
-             :shield nil
+             :shield nil                ;prevents them from raising their shields again.
              :scanner nil
-             :drone-bay nil}
-   ;; include more locations
+             :drone-bay nil ;will cut contact to any active drones
+             :weapons-bay-1 nil ;each bay has 3 weapon systems in it. 
+             :weapons-bay-2 nil}
+   ;; include more locations. 
    :locations {:bow location-health
                :stern location-health
                :port location-health
@@ -48,16 +60,24 @@
               }
               
 
+   ;; replace this by drawing on the drone definition below. 
    :drones {:deployed nil ;how many are deployed?
             :mode nil ;this will be recon, assault, or defense
             :position nil
             
             }})
 
-(def drone {:hull 100
-            :location nil
-            :course nil})
+(defn assign-system-locations 
+  "Returns a map of systems randomly mapped to locations" 
+  []
+  (zipmap 
+   (keys (:system-locations manowar))
+   (shuffle  (keys (:locations manowar)))))
 
+
+
+;;; This'll assign systems to locations, name your ship, 
 (defn make-ship [])
 
 ;;; Need to figure out path-finding if the course is imprecise. 
+

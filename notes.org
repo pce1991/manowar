@@ -6,6 +6,8 @@
     Each player will make their move without the information of what's about to happen. It's important that things can be going wrong without you realizing it for a couple of turns; that's where clever hacking comes into play actually. If you change their course noticably then they'll just set it back, but if you alter it subtley to your advantage, then they might not notice til its too late. 
 
     Turns happen on a timer so that there is a rush to get things done. 
+
+    <2014-08-10 Sun> Much better idea: the radar only updates once every ~5 seconds, so you issue commands within that window; this makes the game feel real-time even tho it isnt actually; it also restricts the amount of consdideration you can give to your strategy. This'll make movement feel much better, so instead of feeling like a unit jumped 4 spaces in a turn, it seems like they moved there quickly: your imagination takes over in between scanner updates. 
 *** Movement
     Maybe the ships have an accelerate/decelerate bit that comes into play when making turns or trying to get away. You might also have stabilizers you could activate, but I'm not sure how that'd work. 
 
@@ -44,6 +46,8 @@
      These can be sustained, but drain more and more energy. 
 **** Nuke
      Disrupts and damages systems, does a huge amount of damage to the hull. How does it fair agaist shields?
+**** Cannon
+     This will only work at close range, but takes very little energy and rips thru the hull. 
 **** Particle Beam
 **** Ion Cannon
 **** Plasma Cannon
@@ -51,7 +55,7 @@
 *** Shields
     Maybe rather than having a permanent reduction in power they have a constant drain, so you want to wait until the last moment to bring them up, but you also don't want to be vulnerable. 
 *** Drones 
-    
+    The points of drones is that they essentially let you do too things at once, like gather info on enemy and fires weapons or something. They drain your power but provide you a little more variety in a turn, or peace of mind when doing something time consuming. 
 **** Combat
 
 **** Intelligence
