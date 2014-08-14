@@ -26,7 +26,7 @@
    :engine {:speed 0
             :max-speed 4
             :acceleration 2}
-
+   :destination nil
    :course nil 
    :location nil 
    ;; radomize the location of systems. Will take a key matching those in locations. Add more. 

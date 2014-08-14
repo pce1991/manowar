@@ -76,8 +76,11 @@
 
 ;this will be done by taking the coordinates and mapping them to each ring of grid.
 ;;; why this no work?
-(def player-coord->grid-coord 
+(def player-coord-map
   (zipmap coordinates (grid-rings)))
+
+(defn grid-coord->player-coord [grid-coord]
+  ((clojure.set/map-invert player-coord-map) grid-coord))
 
 ;;; I'll need another map that takes player-coord and keys them to the screen coordinates of circles.
 ;;; To draw something based on its position look up the ship-location, then get its screen coord from
@@ -85,7 +88,29 @@
 
 ;;; this will take the playercoord, look up the grid-coord, and calculate the distance with those values.
 (defn distance [p1 p2]
-  (println (map * (map - p2 p1) (map - p2 p1)))
+
   (math/round (math/sqrt  (reduce + (map * (map - p2 p1) (map - p2 p1))))))
 
 ;;; generate a map with opstacles such as asteroids, ion-nebulas, and planets/stars
+
+;;; This should work, but it hasnt been tested sufficiently.
+(defn adjacent-points [point]
+  "Takes a point as a radial-coordinate and then returns a list of adjacent radial-coordinates."
+  (let [grid-point (player-coord-map point)
+        x (grid-point 0)
+        y (grid-point 1)
+        up [x (inc y)]
+        up-right (mapv inc grid-point)
+        right [(inc x) y]
+        down-right [(inc x) (dec y)]
+        down [x (dec y)]
+        down-left (mapv dec grid-point)
+        left [(dec x) y]
+        up-left [(dec x) (inc y)]]
+    (letfn [(adjacent-to-grid-point? [p] 
+              (if  (some #{p} [up up-right right down-right down down-left left up-left])
+                true 
+                false)) ]
+      ;now just need to convert these to 
+      (mapv grid-coord->player-coord (filter adjacent-to-grid-point? (vals player-coord-map))))))
+
