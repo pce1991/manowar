@@ -1,4 +1,4 @@
-(def manowar.ships)
+(ns manowar.ships)
 
 (def location-health 25)
 (def charge-drain 5)

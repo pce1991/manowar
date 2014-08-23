@@ -57,6 +57,10 @@
                    (remove #{[(current 0) (inc (current 1))]} vectors)
                    )))))
 
+;;; This can be used in adjacent points.
+(defn sort-clockwise-radial [vector-seq]
+  )
+
 ;why does sort not work
 (defn grid-ring [n]
   "Returns nth ring in a grid, sorted clockwise."
@@ -79,7 +83,8 @@
 (def player-coord-map
   (zipmap coordinates (grid-rings)))
 
-(defn grid-coord->player-coord [grid-coord]
+(defn grid-coord->radial-coord [grid-coord]
+  "Coverts a grid-coordinate to the radial coordinate system used by the player."
   ((clojure.set/map-invert player-coord-map) grid-coord))
 
 ;;; I'll need another map that takes player-coord and keys them to the screen coordinates of circles.
@@ -87,13 +92,17 @@
 ;;; the map.
 
 ;;; this will take the playercoord, look up the grid-coord, and calculate the distance with those values.
-(defn distance [p1 p2]
-
-  (math/round (math/sqrt  (reduce + (map * (map - p2 p1) (map - p2 p1))))))
+;;; this won't work with map for some reason, investigate why!
+(defn distance [point1 point2]
+  "Takes in a two pairs of radial coordinates and returns the distance computed using their grid coordinates."
+  (let [p1 (player-coord-map point1)
+         p2 (player-coord-map point2)]
+    (math/round (math/sqrt  (reduce + (map * (map - p2 p1) (map - p2 p1)))))))
 
 ;;; generate a map with opstacles such as asteroids, ion-nebulas, and planets/stars
 
-;;; This should work, but it hasnt been tested sufficiently.
+;;; This should work, but it hasnt been tested sufficiently. 
+;;; Need to sort it in clockwise I think.
 (defn adjacent-points [point]
   "Takes a point as a radial-coordinate and then returns a list of adjacent radial-coordinates."
   (let [grid-point (player-coord-map point)
@@ -112,5 +121,5 @@
                 true 
                 false)) ]
       ;now just need to convert these to 
-      (mapv grid-coord->player-coord (filter adjacent-to-grid-point? (vals player-coord-map))))))
+      (mapv grid-coord->radial-coord (filter adjacent-to-grid-point? (vals player-coord-map))))))
 
