@@ -13,8 +13,9 @@
 ;;; the point above, and not necessarily solve the problem of veering in other cases
 ;;; I need a way to check, when I get indexOf, if there are multiple minimums,
 ;;; if there are, then I need a way to check which is the most desirable. 
+;;; I'll add a check here to see if a course exists, if not, then procede as normal, but if so, drain the engine
 (defn plot-course
-  "This a list of the coordinates that will be visited, based on your currents speed, given your position and course."
+  "This a list of the coordinates that will be visited, based on your currents speed, given your position and course. Returns a ship with the updated course."
   [ship]
   (let [loc (ship :location)
         dest (ship :destination)
@@ -24,19 +25,37 @@
                 temp-loc (first course)]
       (if (= temp-loc dest)
         (assoc ship :course course)
-        ;continue by getting distances with the new temp-loc then consing the (get adj (index ....))
-        ;; make sure all this works
         (let [new-adj (adjacent-points temp-loc)
               new-distances (map distance (repeat (count new-adj) dest) new-adj)
               next-loc (get new-adj (.indexOf new-distances (apply min new-distances)))]
           (recur (conj course next-loc) next-loc))))))
 
 (defn set-course [ship course]
-  (assoc ship :course course ))
+  (assoc ship :course course))
 
-(defn set-speed [ship increment]
-  (assoc ship :speed (+  (:speed ship) increment) ))
+(defn set-destination [ship dest]
+  "Sets a destination on the ship and automatically updates course."
+  (plot-course (assoc ship :destination dest)))
+
+;;; I need to put a cap on value. 
+(defn set-speed [ship val]
+  (assoc ship :engine (assoc (:engine ship) :speed-setting val)))
+
+;;; This is where drain will come into effect, by taking the current speed after the ship has accelerated. 
+;;; This also needs a cap.
+(defn accelerate [ship]
+  (if (<  (:speed-current ship) (:speed-setting ship))
+    (let [ship-speed-increased 
+          (assoc ship :engine (assoc (:engine ship) :speed-current (+  (:speed-current  (:engine ship)) 
+                                                                       (:acceleration (:engine ship)))))]
+      (assoc ship-speed-increased :generator 
+             (assoc (:generator ship-speed-increased) 
+               :current-output (+ (:current-output (:generator ship-speed-increased))
+                                  (* engine-drain (:speed-current (:engine ship-speed-increased)))))))
+    ship))
 
 ;;; this will update the location of the ship by looking at the speed and destination
 (defn move-ship [ship]
-  )
+  "This will update the location of the ship from the first of the course, and shave that off."
+  (assoc ship :location (first (:course ship)) 
+         :course (rest (:course ship))) )

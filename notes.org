@@ -8,14 +8,18 @@
     Turns happen on a timer so that there is a rush to get things done. 
 
     <2014-08-10 Sun> Much better idea: the radar only updates once every ~5 seconds, so you issue commands within that window; this makes the game feel real-time even tho it isnt actually; it also restricts the amount of consdideration you can give to your strategy. This'll make movement feel much better, so instead of feeling like a unit jumped 4 spaces in a turn, it seems like they moved there quickly: your imagination takes over in between scanner updates. 
+
+    Every attack has a window of how many updates until it reaches the target. 
 *** Movement
     Maybe the ships have an accelerate/decelerate bit that comes into play when making turns or trying to get away. You might also have stabilizers you could activate, but I'm not sure how that'd work. 
 
     You can plot a course over a series of turns rather than just setting a destination. I'm guessing the ship still does the path-finding, but you could tell it to go here, then here, then there. 
 
     Maybe you have orbital paths around certain bodies that require no energy to move around and you could do things like swing yourself around it then launch off. In this sytem plotting a course would mean you'd calculate at which points you need to use another thrust. 
+
+    If its turn based it makes sense that changing course takes a turn, but if it isnt turn-based then you could change course several times. This could be fixed by having it consume a lot of energy.
 **** Attitude
-     This is the orientation of the ship to an object. 
+     This is the orientation of the ship to an object. This seems like a bit much to handle, but could lead to cool situations like strengthening forward shields, or having to have the proper orientation to land a weapons bout. 
 **** Methods of propulsion
      Single bursts or gliders?
 *** Hacking
@@ -24,6 +28,8 @@
     Hacking is really the heart of the game; since there's no stealth, and these things are just lumbering towards each other, the element of suspense and mystery is that you can't trust your system readouts, even tho its the only way you can perceive the world. There needs to be a sense of dread and isolation. 
 
     Hacking should allow for a lot of player expression. Maybe you can hack multiple things at once, but you have to decide how long each lasts for. You might also be able to cover your tracks with clever tricks. It should be more skill based than the other systems, but I don't know how to move it beyond just selecting what hacks you want to do. Maybe you can set a sequence of things to happen, kind of like plotting a route. I think gaining access should be what requires skill, plating a bug on them, getting drones nearby, stuff like that; but again, its vague and I'm not sure how to do it. Maybe there's a tradeoff between being hackable and having a certain power. Maybe drones make you hackable, but then would they be worth it? Maybe communication channels, which would be really important in multiplayer (but how to avoid players just cheating and talking on the phone or something?). Maybe you can monitor your own ships to see if anythings gone wrong with them, but this leaves both of you vulnerable. 
+
+    Let's say the game updates every 10 seconds. Once a hack is initiated you can view all their moves as they're updated, so you can see that they just decided to fire missiles, and you can deploy drones. 
 **** Navigation/Map
      Hacking the navigation could be changin their course, or swapping out one part of their plotted route for another without them knowing it, so they get to their first destination, but then realize they're going the wrong way. 
 **** Weapons
@@ -57,11 +63,17 @@
 *** Drones 
     The points of drones is that they essentially let you do too things at once, like gather info on enemy and fires weapons or something. They drain your power but provide you a little more variety in a turn, or peace of mind when doing something time consuming. 
 **** Combat
-
+     These can seek out enemy ships and damage them. They're not silent like missiles so you know they're coming, but fending them off will take attention away from the enemy. How to handle a dogfight between them? You can give them priority targets, like going after the ship at all cost, or making sure to defend themselves. If you have 4 vs 4 drones, it goes like this: 
+|          | Reckless | Cautious |
+| Reckless | 4 4      |  2 4     |
+| Cautious |  4 2     |  3 3     | 
+ - Thi  makes battles simple and pedictable, but might not be that interesting, mostly because two cautious forces would just wipe each other out and have no effect. And what about offensive versus defensive drones.
 **** Intelligence
      These can be used to hack the enemy ship and gather system readouts, course-setting, or to disrupt their perception of the map and their own systems (like thinking they took a hit to shields so they'll try to protect their hull, which is when you really hit their shields). 
 **** Defense
      These will repair your hull and also fend off enemy drones or try to shoot down incoming missiles. 
+**** Mine
+     Thes will follow an orbit around a point, exploding whenever something is within 2 units distance. They're easy to spot tho, so they serve a map control function more than an offensive one. 
 *** Map
     Maybe the map could be randomized with certain obscructions like debris, asteroids, or planets. That'd be another cool think to hack: they think they're hiding behind a rock but really you put it there. 
 

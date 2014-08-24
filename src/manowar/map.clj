@@ -87,6 +87,18 @@
   "Coverts a grid-coordinate to the radial coordinate system used by the player."
   ((clojure.set/map-invert player-coord-map) grid-coord))
 
+(defn random-outer-point []
+  (let [outermost-ring (apply max (get-xs (keys  player-coord-map)))
+        y-count (apply max (get-ys (keys  player-coord-map)))]
+    [outermost-ring (rand-int y-count)]))
+
+(defn opposite-point [point]
+  "Will return a point on the same ring on the other side."
+  (let [y-median (/ (inc  (apply max (get-ys (get-ring (first point))))) 2)]
+    (if (< (second point) y-median)
+      [(first point) (+ (second point) y-median)]
+      [(first point) (- (second point) y-median)])))
+
 ;;; I'll need another map that takes player-coord and keys them to the screen coordinates of circles.
 ;;; To draw something based on its position look up the ship-location, then get its screen coord from
 ;;; the map.
