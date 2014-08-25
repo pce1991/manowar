@@ -15,14 +15,14 @@
 
 ;;; To make this work in higher-noon engine just use these as keys and map it to coordinates on screen
 ;;; This should be changed to coordinates like on a graph instead of the binary circle that I'm using now.
-(defn clean-map [radius]
+(defn radial-map [radius]
   (conj  (reduce concat  (for [i (map inc  (range radius))]
                            (for [j (map inc (range (* radius i)))]
                              [i (dec  j)]))) [0 0]))
 
 
 (def grid (grid-map 8)) ;game representation map
-(def coordinates (clean-map 8)) ;player representation of map
+(def coordinates (radial-map 8)) ;player representation of map
 
 (defn get-xs [vector-seq]
   (map first vector-seq))
@@ -38,27 +38,28 @@
     (loop [new-seq (list start) 
            current start
            vectors (remove #{start}  vector-seq)]
-      (cond (= (count new-seq) (count vector-seq)) 
+      (cond (= (count new-seq) (count vector-seq))  ;GACK! use a let to clean this up
             (reverse  new-seq)                 ;reversing this give me nil...?
             (some #{[(inc (current 0)) (current 1)]} vectors) ;if there's one to the right
             (recur (conj new-seq [(inc (current 0)) (current 1)]) [(inc (current 0)) (current 1)] 
-                   (remove #{[(inc (current 0)) (current 1)]} vectors)
-                   )
+                   (remove #{[(inc (current 0)) (current 1)]} vectors))
             (some #{[(current 0) (dec  (current 1))]} vectors) ;if there's one down
             (recur (conj new-seq [(current 0) (dec  (current 1))]) [(current 0) (dec  (current 1))] 
-                   (remove #{[(current 0) (dec  (current 1))]} vectors)
-                   )
+                   (remove #{[(current 0) (dec  (current 1))]} vectors))
             (some #{[(dec  (current 0)) (current 1)]} vectors) ;if there's one to the left
             (recur (conj new-seq [(dec  (current 0)) (current 1)]) [(dec  (current 0)) (current 1)] 
-                   (remove #{[(dec  (current 0)) (current 1)]} vectors)
-                   ) 
+                   (remove #{[(dec  (current 0)) (current 1)]} vectors)) 
             (some #{[(current 0) (inc (current 1))]} vectors) ;if there's one above
             (recur (conj new-seq [(current 0) (inc (current 1))]) [(current 0) (inc (current 1))] 
-                   (remove #{[(current 0) (inc (current 1))]} vectors)
-                   )))))
+                   (remove #{[(current 0) (inc (current 1))]} vectors))))))
 
 ;;; This can be used in adjacent points.
 (defn sort-clockwise-radial [vector-seq]
+  )
+
+;;; this will require a center to work properly, but it can be chosen from the list of vectors. 
+(defn sort-clockwise-vector3s [vector-seq]
+  
   )
 
 ;why does sort not work

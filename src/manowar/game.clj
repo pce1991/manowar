@@ -1,18 +1,14 @@
 (ns manowar.game
   (:require [manowar.ships :refer :all]
             [manowar.map :refer :all]
-            [manowar.ai :as ai]))
+;            [manowar.ai :as ai] ;circular dependency, AI will use game
+            ))
 
 ;get the adjacent spaces, see which one within movement speed brings you closest to destination.
 
 
 ;;; This will look at all the adjacent points, and see which ones shortens the distance to destination
-;;; this doesnt go in a straight enough line, tending to veer to the left when going up. Maybe I should correct 
-;;; this by just drawing a line between two points and finding which point is closest the line.
-;;; I should make sure that adjacent points is sorted? That would just prejudice
-;;; the point above, and not necessarily solve the problem of veering in other cases
-;;; I need a way to check, when I get indexOf, if there are multiple minimums,
-;;; if there are, then I need a way to check which is the most desirable. 
+;;; this doesnt go in a straight enough line, tending to veer to the left when going up.
 ;;; I'll add a check here to see if a course exists, if not, then procede as normal, but if so, drain the engine
 (defn plot-course
   "This a list of the coordinates that will be visited, based on your currents speed, given your position and course. Returns a ship with the updated course."
@@ -37,14 +33,18 @@
   "Sets a destination on the ship and automatically updates course."
   (plot-course (assoc ship :destination dest)))
 
-;;; I need to put a cap on value. 
 (defn set-speed [ship val]
-  (assoc ship :engine (assoc (:engine ship) :speed-setting val)))
+  (let [v (if (< val (:max-speed (:engine ship)))
+            val
+            (:max-speed (:engine ship)))] 
+    (assoc ship :engine (assoc (:engine ship) :speed-setting v))))
 
 ;;; This is where drain will come into effect, by taking the current speed after the ship has accelerated. 
-;;; This also needs a cap.
+;;; This also needs a cap, but on power!
+;;; getting a null pointer here!
 (defn accelerate [ship]
-  (if (<  (:speed-current ship) (:speed-setting ship))
+  "This will increase the current speed of the ship by the acceleration if the speed setting is currently >"
+  (if (<   (:speed-current (:engine  ship)) (:speed-setting (:engine  ship)))
     (let [ship-speed-increased 
           (assoc ship :engine (assoc (:engine ship) :speed-current (+  (:speed-current  (:engine ship)) 
                                                                        (:acceleration (:engine ship)))))]
@@ -57,5 +57,24 @@
 ;;; this will update the location of the ship by looking at the speed and destination
 (defn move-ship [ship]
   "This will update the location of the ship from the first of the course, and shave that off."
-  (assoc ship :location (first (:course ship)) 
-         :course (rest (:course ship))) )
+  ;; this needs to be changed to a loop where it does this a number of times determined by their speed. 
+  (if-not (nil? (:course ship)) 
+    (loop [updated-ship ship
+           speed (:speed-current (:engine ship))
+           moves 0]
+      (if (= moves speed)
+        updated-ship 
+        (recur 
+         (assoc updated-ship :location (first (:course updated-ship)) 
+                :course (rest (:course updated-ship)))
+         speed (inc moves))))
+    ship))
+
+
+;;; ==================================================
+;;; COMBAT
+;;; ==================================================
+
+(defn destroyed? [ship]
+  (<= (:hull ship) 0))
+
